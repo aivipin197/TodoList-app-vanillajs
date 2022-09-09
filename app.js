@@ -145,3 +145,40 @@ todoList.addEventListener('click' , e => {
         deleteTodo(targetEle)
     }
 })
+
+const filterTodo = document.querySelector('.filter-options')
+filterTodo.addEventListener('change' , filterTodoOptions)
+
+// ============================ Filter todos =============================
+
+function filterTodoOptions(e) {
+    const targetOptionEle = e.target
+    const todoListItem = todoList.querySelectorAll('.todo-list-item')
+
+    // edge case
+    if (todoList.innerHTML === "") return
+
+    // const filterOptions = Array.from(filterTodo.children)
+
+    todoListItem.forEach(todoItem => {
+        switch(targetOptionEle.value) {
+            case "all" : 
+                todoItem.style.display = "flex"
+                break ;
+            case "completed" :
+                if (todoItem.matches('.complete-state')) {
+                    todoItem.style.display = "flex"
+                } else {
+                    todoItem.style.display = "none"
+                }
+                break;
+            case "uncompleted" :
+                if (!todoItem.matches('.complete-state')) {
+                    todoItem.style.display = "flex"
+                } else {
+                    todoItem.style.display = "none"
+                }
+        }
+    })
+
+}
