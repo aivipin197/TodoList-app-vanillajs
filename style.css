@@ -1,0 +1,190 @@
+/* googl fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+* , 
+*::before , 
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-clr : hsl(0, 0%, 100%) ;
+    --width-size : clamp(360px , 40% , 410px) ;
+    --todo-clr : hsl(0, 0%, 37%) ;
+}
+
+html {
+    font-size : 62.5% ;
+}
+
+body {
+    background-color: #2F2F2F ;
+    font-family : 'Poppins', sans-serif;
+    user-select : none ;
+}
+
+li {
+    list-style : none ;
+    border-radius : .25rem ;
+}
+
+header {
+    padding-block : 1em ;
+    background-color: #222;
+    display: flex;
+    justify-content: center ;
+    align-items : center ;
+    color : var(--primary-clr) ;
+    font-size : 2rem ;
+}
+
+.container {
+    display : flex ;
+    justify-content: center ;
+    margin-top : 5em ;
+}
+
+/* Add TODO container */
+.todo-form {
+    width : clamp(500px , 40% , 410px) ;
+    display: flex;
+    justify-content: space-between;
+}
+.add-container {
+    width : clamp(360px , 40% , 410px) ;
+    display : flex ;
+}
+.add-todo-input {
+    width : 100% ;
+    padding : .6em 1em ;
+    border : 0 ;
+    outline : none ;
+    font-size : 2rem ;
+}
+.add-button {
+    background-color: var(--todo-clr);
+    padding-inline : 2em ;
+    border : 0 ;
+    cursor : pointer ;
+    transition : all 0.2s ease ;
+}
+.add-button:hover {
+    background-color: rgb(120, 120, 120);
+}
+.add-button:active {
+    background-color: rgb(83, 83, 83) ;
+}
+
+.add-button i {
+    font-size: 3rem;
+    color: var(--primary-clr);
+    position: relative;
+    top: -2px;
+}
+
+/* filter TODO container */
+.todostate-container select {
+    height : 100% ;
+    background-color: #A7A2A9;
+    padding-inline : 1em ; 
+    border : 0 ;
+    border-radius : .25rem ;
+    cursor : pointer ;     
+}
+
+/* TODO List container */
+.task-container {
+    display : flex ;
+    justify-content: center ;
+    margin-block : 10em ;
+}
+.todo-list {
+    width : clamp(350px , 45% , 470px) ;
+    display : flex ;
+    flex-direction : column ;
+    border-radius : .25rem ;
+}
+.todo-list-item {
+    width: 100%;
+    display: flex;
+    margin-block : 1em ;
+}
+.todo-list-item label {
+    flex : 1 ;
+    display : flex ;
+    align-items : center ;
+    background-color: var(--todo-clr) ;
+    padding : 1em ;
+    font-size : 1.5rem ;
+    color : var(--primary-clr) ;
+}
+.todo-list-item label [data-list-item-text] {
+    user-select: none ;
+    margin-left : .6em ;    
+}
+
+.todo-list-item label:hover , 
+[data-list-item-checkbox]:hover {
+    cursor: pointer ;
+} 
+
+.todo-list-item label:hover [data-list-item-text] {
+    text-decoration : line-through ;
+} 
+
+[data-list-item-checkbox]:checked ~ [data-list-item-text] {
+    text-decoration : line-through ;
+}
+
+.edit-input {
+    display : none ;
+    background-color: hsl(0, 0%, 84%);
+    flex : 1 ;
+    padding : 1em ;
+    border : 0 ;
+    outline : none ;
+}
+
+.todo-state {
+    display : flex ;
+}
+
+.todo-list button {
+    cursor : pointer ;
+    border : .1em solid rgb(138, 138, 138) ; ;
+    padding : 1em 1.2em ;
+}
+
+.todo-list button:hover {
+    background-color: rgb(220, 220, 220) ;
+}
+
+/* complete todo */
+.complete-state {
+    opacity : 0.6 ;
+}
+.complete-state li {
+    text-decoration: line-through ;
+    color: #dad7d7;
+    font-weight: bolder ;
+}
+
+/* delete todo */
+.delete-state {
+    transform : translateY(10rem) rotateZ(30deg) ;
+    opacity : 0 ;
+    transition : all 300ms ease ;
+}
+
+/* edit todo */
+.edit-state .todo {
+    display : none ;
+}
+.edit-state .edit-input {
+    display : inline ;
+}

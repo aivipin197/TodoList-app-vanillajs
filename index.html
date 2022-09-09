@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Todo app</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/fontawesome.min.css"/>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- JS -->
+    <script src="./app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Todo App</h1>
+    </header>
+
+    <div class="container">
+        <form class="todo-form">
+            <div class="add-container">
+                <input type="text" class="add-todo-input" placeholder="Todo..">
+                <button class="add-button" type="submit">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div> 
+
+            <div class="todostate-container">
+                <select name="todos" class="filter-options">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="uncompleted">Uncompleted</option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <div class="task-container">
+        <ul class="todo-list">
+            <li class="todo-list-item">
+                <label class="list-item-label">
+                    <input type="checkbox" data-list-item-checkbox>
+                    <span data-list-item-text>asdas</span>
+                </label>
+                <input type="text" class="edit-input">
+                <div class="todo-state">
+                    <button class="edit-button" type="submit">✏️</button>
+                    <button class="delete-button" type="submit">🗑️</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <template id="boilerplate-todo-list">
+        <li class="todo-list-item">
+            <label class="list-item-label">
+                <input type="checkbox" data-list-item-checkbox>
+                <span data-list-item-text></span>
+            </label>
+            <input type="text" class="edit-input">
+            <div class="todo-state">
+                <button class="edit-button" type="submit">✏️</button>
+                <button class="delete-button" type="submit">🗑️</button>
+            </div>
+        </li>
+    </template>
+</body>
+</html>
