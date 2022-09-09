@@ -4,7 +4,7 @@
 
 ## Features
 
-- [x] show task list
+- [x] filter todo list
 - [x] CRUD operations
     - [x] add new todo
     - [x] complete todo
