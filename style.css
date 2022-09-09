@@ -139,6 +139,8 @@ header {
 
 [data-list-item-checkbox]:checked ~ [data-list-item-text] {
     text-decoration : line-through ;
+    color: #dad7d7;
+    font-weight: bolder ;
 }
 
 .edit-input {
@@ -168,11 +170,6 @@ header {
 .complete-state {
     opacity : 0.6 ;
 }
-.complete-state li {
-    text-decoration: line-through ;
-    color: #dad7d7;
-    font-weight: bolder ;
-}
 
 /* delete todo */
 .delete-state {
@@ -182,7 +179,7 @@ header {
 }
 
 /* edit todo */
-.edit-state .todo {
+.edit-state label {
     display : none ;
 }
 .edit-state .edit-input {
