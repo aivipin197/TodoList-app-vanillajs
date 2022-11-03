@@ -8,7 +8,7 @@ const templateEle = document.querySelector('#boilerplate-todo-list')
 const LOCAL_STORAGE_KEY = 'TodoList'
 const TODO_LOCAL_STORAGE_KEY = `${LOCAL_STORAGE_KEY}-CRUD`
 
-// maintaining all the todo
+// maintaining + rendering all the todo
 const todos = getLocalTodo()
 todos.forEach(renderTodo)
 
@@ -135,36 +135,34 @@ todoList.addEventListener('click' , e => {
 
     if (targetEle.matches('[data-list-item-checkbox]')) {
         completeTodo(targetEle)
-    }
-    
-    if (targetEle.matches('.edit-button')) {
-        editTodo(targetEle)
-    }
 
-    if (targetEle.matches('.delete-button')) {
+    } else if (targetEle.matches('.edit-button')) {
+        editTodo(targetEle)
+
+    } else if (targetEle.matches('.delete-button')) {
         deleteTodo(targetEle)
     }
 })
 
 const filterTodo = document.querySelector('.filter-options')
 filterTodo.addEventListener('change' , filterTodoOptions)
+// OR - another way
+// filterTodo.addEventListener('change' , (e) => {
+//     filterTodoOptions(e)
+// })
 
 // ============================ Filter todos =============================
 
 function filterTodoOptions(e) {
     const targetOptionEle = e.target
     const todoListItem = todoList.querySelectorAll('.todo-list-item')
-
+    
     // edge case
     if (todoList.innerHTML === "") return
-
-    // const filterOptions = Array.from(filterTodo.children)
-
+    
     todoListItem.forEach(todoItem => {
+        console.log(todoItem);
         switch(targetOptionEle.value) {
-            case "all" : 
-                todoItem.style.display = "flex"
-                break ;
             case "completed" :
                 if (todoItem.matches('.complete-state')) {
                     todoItem.style.display = "flex"
@@ -178,7 +176,10 @@ function filterTodoOptions(e) {
                 } else {
                     todoItem.style.display = "none"
                 }
-        }
+                break;
+            default : // 'All' state
+                    todoItem.style.display = "flex"
+                }
     })
 
 }
