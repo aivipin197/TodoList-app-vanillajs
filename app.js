@@ -179,7 +179,7 @@ function filterTodoOptions(e) {
                 break;
             default : // 'All' state
                     todoItem.style.display = "flex"
-                }
+        }
     })
 
 }
